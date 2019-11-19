@@ -3,3 +3,23 @@
 ################################################################################
 
 /.vs
+/AntlrCore20Demo/obj
+/AntlrCore20Demo/bin/Debug/netstandard2.0
+/packages
+/WagsnScript/obj
+/WagsnScript/bin
+/WagsnScript.Core/bin
+/WagsnScript.Core/obj
+/WagsScript.Runtime/bin/Debug/netstandard2.0
+/WagsScript.Runtime/obj
+/AntlrNET45Demo/obj/Debug/WagsnScriptLexer.tokens
+/AntlrNET45Demo/obj/Debug/WagsnScript.tokens
+/AntlrNET45Demo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/AntlrNET45Demo/obj/Debug/AntlrNET45Demo.pdb
+/AntlrNET45Demo/obj/Debug/AntlrNET45Demo.exe
+/AntlrNET45Demo/obj/Debug/AntlrNET45Demo.csprojAssemblyReference.cache
+/AntlrNET45Demo/obj/Debug/AntlrNET45Demo.csproj.FileListAbsolute.txt
+/AntlrNET45Demo/obj/Debug/AntlrNET45Demo.csproj.CoreCompileInputs.cache
+/AntlrNET45Demo/obj/Debug/AntlrNET45Demo.csproj.CopyComplete
+/AntlrNET45Demo/obj/Debug/AntlrNET45Demo.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
+/AntlrNET45Demo/bin/Debug
