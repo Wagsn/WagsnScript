@@ -1,0 +1,2 @@
+# WagsnScript
+Wagsn Script
