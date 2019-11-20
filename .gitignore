@@ -23,3 +23,4 @@
 /AntlrNET45Demo/obj/Debug/AntlrNET45Demo.csproj.CopyComplete
 /AntlrNET45Demo/obj/Debug/AntlrNET45Demo.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
 /AntlrNET45Demo/bin/Debug
+*.cache
