@@ -11,19 +11,28 @@ namespace AntlrNET45Demo
     {
         static void Main(string[] args)
         {
-            string input = @"1 + (2 - 3) * 4";
+            string input = @"
+a=true;
+b=1;
+a();
+a(b);
+a(b,c);
+";
+            Console.WriteLine(input);
 
             var stream = new AntlrInputStream(input);
             var lexer = new WSLexer(stream);
             var tokens = new CommonTokenStream(lexer);
             var parser = new WSParser(tokens);
-            var tree = parser.program();
+            var tree = parser.prog();
 
-            var visitor = new SimpleWSVisitor();
-            var result = visitor.Visit(tree);
-
+            Console.WriteLine("tree.ToStringTree(parser)");
             Console.WriteLine(tree.ToStringTree(parser));
-            Console.WriteLine(result);
+
+            //var visitor = new SimpleWSVisitor();
+            //var result = visitor.Visit(tree);
+            //Console.WriteLine(result);
+
             Console.ReadKey();
         }
     }

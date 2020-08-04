@@ -31,18 +31,22 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 [System.CLSCompliant(false)]
 public partial class WSParser : Parser {
 	public const int
-		T__0=1, T__1=2, ADD=3, SUB=4, MUL=5, DIV=6, INT=7, WS=8;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, ID=8, ADD=9, SUB=10, 
+		MUL=11, DIV=12, INT=13, WS=14;
 	public const int
-		RULE_program = 0, RULE_expression = 1;
+		RULE_prog = 0, RULE_stat = 1, RULE_assign = 2, RULE_call = 3, RULE_singleExpression = 4, 
+		RULE_bool = 5;
 	public static readonly string[] ruleNames = {
-		"program", "expression"
+		"prog", "stat", "assign", "call", "singleExpression", "bool"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'('", "')'", "'+'", "'-'", "'*'", "'/'"
+		null, "';'", "'='", "'('", "','", "')'", "'true'", "'false'", null, "'+'", 
+		"'-'", "'*'", "'/'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, "ADD", "SUB", "MUL", "DIV", "INT", "WS"
+		null, null, null, null, null, null, null, null, "ID", "ADD", "SUB", "MUL", 
+		"DIV", "INT", "WS"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -94,38 +98,54 @@ public partial class WSParser : Parser {
 	{
 		_interp = new ParserATNSimulator(this,_ATN);
 	}
-	public partial class ProgramContext : ParserRuleContext {
-		public ExpressionContext expression() {
-			return GetRuleContext<ExpressionContext>(0);
+	public partial class ProgContext : ParserRuleContext {
+		public StatContext[] stat() {
+			return GetRuleContexts<StatContext>();
 		}
-		public ProgramContext(ParserRuleContext parent, int invokingState)
+		public StatContext stat(int i) {
+			return GetRuleContext<StatContext>(i);
+		}
+		public ProgContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_program; } }
+		public override int RuleIndex { get { return RULE_prog; } }
 		public override void EnterRule(IParseTreeListener listener) {
 			IWSListener typedListener = listener as IWSListener;
-			if (typedListener != null) typedListener.EnterProgram(this);
+			if (typedListener != null) typedListener.EnterProg(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IWSListener typedListener = listener as IWSListener;
-			if (typedListener != null) typedListener.ExitProgram(this);
+			if (typedListener != null) typedListener.ExitProg(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitProgram(this);
+			if (typedVisitor != null) return typedVisitor.VisitProg(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public ProgramContext program() {
-		ProgramContext _localctx = new ProgramContext(_ctx, State);
-		EnterRule(_localctx, 0, RULE_program);
+	public ProgContext prog() {
+		ProgContext _localctx = new ProgContext(_ctx, State);
+		EnterRule(_localctx, 0, RULE_prog);
+		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 4; expression(0);
+			State = 15;
+			_errHandler.Sync(this);
+			_la = _input.La(1);
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__5) | (1L << T__6) | (1L << ID) | (1L << INT))) != 0)) {
+				{
+				{
+				State = 12; stat();
+				}
+				}
+				State = 17;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -139,23 +159,215 @@ public partial class WSParser : Parser {
 		return _localctx;
 	}
 
-	public partial class ExpressionContext : ParserRuleContext {
-		public ExpressionContext(ParserRuleContext parent, int invokingState)
+	public partial class StatContext : ParserRuleContext {
+		public SingleExpressionContext singleExpression() {
+			return GetRuleContext<SingleExpressionContext>(0);
+		}
+		public StatContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_expression; } }
+		public override int RuleIndex { get { return RULE_stat; } }
+		public override void EnterRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.EnterStat(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.ExitStat(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStat(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StatContext stat() {
+		StatContext _localctx = new StatContext(_ctx, State);
+		EnterRule(_localctx, 2, RULE_stat);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 18; singleExpression(0);
+			State = 19; Match(T__0);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class AssignContext : ParserRuleContext {
+		public ITerminalNode ID() { return GetToken(WSParser.ID, 0); }
+		public SingleExpressionContext singleExpression() {
+			return GetRuleContext<SingleExpressionContext>(0);
+		}
+		public AssignContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_assign; } }
+		public override void EnterRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.EnterAssign(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.ExitAssign(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssign(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public AssignContext assign() {
+		AssignContext _localctx = new AssignContext(_ctx, State);
+		EnterRule(_localctx, 4, RULE_assign);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 21; Match(ID);
+			State = 22; Match(T__1);
+			State = 23; singleExpression(0);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class CallContext : ParserRuleContext {
+		public ITerminalNode ID() { return GetToken(WSParser.ID, 0); }
+		public SingleExpressionContext[] singleExpression() {
+			return GetRuleContexts<SingleExpressionContext>();
+		}
+		public SingleExpressionContext singleExpression(int i) {
+			return GetRuleContext<SingleExpressionContext>(i);
+		}
+		public CallContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_call; } }
+		public override void EnterRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.EnterCall(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.ExitCall(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCall(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public CallContext call() {
+		CallContext _localctx = new CallContext(_ctx, State);
+		EnterRule(_localctx, 6, RULE_call);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 25; Match(ID);
+			State = 26; Match(T__2);
+			State = 37;
+			_errHandler.Sync(this);
+			_la = _input.La(1);
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__5) | (1L << T__6) | (1L << ID) | (1L << INT))) != 0)) {
+				{
+				{
+				State = 27; singleExpression(0);
+				State = 32;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+				while (_la==T__3) {
+					{
+					{
+					State = 28; Match(T__3);
+					State = 29; singleExpression(0);
+					}
+					}
+					State = 34;
+					_errHandler.Sync(this);
+					_la = _input.La(1);
+				}
+				}
+				}
+				State = 39;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+			}
+			State = 40; Match(T__4);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class SingleExpressionContext : ParserRuleContext {
+		public SingleExpressionContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_singleExpression; } }
 	 
-		public ExpressionContext() { }
-		public virtual void CopyFrom(ExpressionContext context) {
+		public SingleExpressionContext() { }
+		public virtual void CopyFrom(SingleExpressionContext context) {
 			base.CopyFrom(context);
 		}
 	}
-	public partial class ParenthesisContext : ExpressionContext {
-		public ExpressionContext expression() {
-			return GetRuleContext<ExpressionContext>(0);
+	public partial class AssignmentContext : SingleExpressionContext {
+		public AssignContext assign() {
+			return GetRuleContext<AssignContext>(0);
 		}
-		public ParenthesisContext(ExpressionContext context) { CopyFrom(context); }
+		public AssignmentContext(SingleExpressionContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.EnterAssignment(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.ExitAssignment(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssignment(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ParenthesisContext : SingleExpressionContext {
+		public SingleExpressionContext singleExpression() {
+			return GetRuleContext<SingleExpressionContext>(0);
+		}
+		public ParenthesisContext(SingleExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.EnterParenthesis(this);
@@ -170,32 +382,34 @@ public partial class WSParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
-	public partial class NumberContext : ExpressionContext {
-		public ITerminalNode INT() { return GetToken(WSParser.INT, 0); }
-		public NumberContext(ExpressionContext context) { CopyFrom(context); }
+	public partial class BooleanLiteralContext : SingleExpressionContext {
+		public BoolContext @bool() {
+			return GetRuleContext<BoolContext>(0);
+		}
+		public BooleanLiteralContext(SingleExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IWSListener typedListener = listener as IWSListener;
-			if (typedListener != null) typedListener.EnterNumber(this);
+			if (typedListener != null) typedListener.EnterBooleanLiteral(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IWSListener typedListener = listener as IWSListener;
-			if (typedListener != null) typedListener.ExitNumber(this);
+			if (typedListener != null) typedListener.ExitBooleanLiteral(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitNumber(this);
+			if (typedVisitor != null) return typedVisitor.VisitBooleanLiteral(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
-	public partial class AddSubtractionContext : ExpressionContext {
+	public partial class AddSubtractionContext : SingleExpressionContext {
 		public IToken operate;
-		public ExpressionContext[] expression() {
-			return GetRuleContexts<ExpressionContext>();
+		public SingleExpressionContext[] singleExpression() {
+			return GetRuleContexts<SingleExpressionContext>();
 		}
-		public ExpressionContext expression(int i) {
-			return GetRuleContext<ExpressionContext>(i);
+		public SingleExpressionContext singleExpression(int i) {
+			return GetRuleContext<SingleExpressionContext>(i);
 		}
-		public AddSubtractionContext(ExpressionContext context) { CopyFrom(context); }
+		public AddSubtractionContext(SingleExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.EnterAddSubtraction(this);
@@ -210,15 +424,34 @@ public partial class WSParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
-	public partial class MultiplyDivideContext : ExpressionContext {
+	public partial class CallExpressionContext : SingleExpressionContext {
+		public CallContext call() {
+			return GetRuleContext<CallContext>(0);
+		}
+		public CallExpressionContext(SingleExpressionContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.EnterCallExpression(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.ExitCallExpression(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCallExpression(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class MultiplyDivideContext : SingleExpressionContext {
 		public IToken operate;
-		public ExpressionContext[] expression() {
-			return GetRuleContexts<ExpressionContext>();
+		public SingleExpressionContext[] singleExpression() {
+			return GetRuleContexts<SingleExpressionContext>();
 		}
-		public ExpressionContext expression(int i) {
-			return GetRuleContext<ExpressionContext>(i);
+		public SingleExpressionContext singleExpression(int i) {
+			return GetRuleContext<SingleExpressionContext>(i);
 		}
-		public MultiplyDivideContext(ExpressionContext context) { CopyFrom(context); }
+		public MultiplyDivideContext(SingleExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.EnterMultiplyDivide(this);
@@ -233,68 +466,111 @@ public partial class WSParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
-
-	[RuleVersion(0)]
-	public ExpressionContext expression() {
-		return expression(0);
+	public partial class NumberLiteralContext : SingleExpressionContext {
+		public ITerminalNode INT() { return GetToken(WSParser.INT, 0); }
+		public NumberLiteralContext(SingleExpressionContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.EnterNumberLiteral(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.ExitNumberLiteral(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNumberLiteral(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
-	private ExpressionContext expression(int _p) {
+	[RuleVersion(0)]
+	public SingleExpressionContext singleExpression() {
+		return singleExpression(0);
+	}
+
+	private SingleExpressionContext singleExpression(int _p) {
 		ParserRuleContext _parentctx = _ctx;
 		int _parentState = State;
-		ExpressionContext _localctx = new ExpressionContext(_ctx, _parentState);
-		ExpressionContext _prevctx = _localctx;
-		int _startState = 2;
-		EnterRecursionRule(_localctx, 2, RULE_expression, _p);
+		SingleExpressionContext _localctx = new SingleExpressionContext(_ctx, _parentState);
+		SingleExpressionContext _prevctx = _localctx;
+		int _startState = 8;
+		EnterRecursionRule(_localctx, 8, RULE_singleExpression, _p);
 		int _la;
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 12;
+			State = 51;
 			_errHandler.Sync(this);
-			switch (_input.La(1)) {
-			case T__0:
+			switch ( Interpreter.AdaptivePredict(_input,3,_ctx) ) {
+			case 1:
+				{
+				_localctx = new NumberLiteralContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
+				State = 43; Match(INT);
+				}
+				break;
+
+			case 2:
+				{
+				_localctx = new BooleanLiteralContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				State = 44; @bool();
+				}
+				break;
+
+			case 3:
+				{
+				_localctx = new AssignmentContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				State = 45; assign();
+				}
+				break;
+
+			case 4:
+				{
+				_localctx = new CallExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				State = 46; call();
+				}
+				break;
+
+			case 5:
 				{
 				_localctx = new ParenthesisContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-
-				State = 7; Match(T__0);
-				State = 8; expression(0);
-				State = 9; Match(T__1);
+				State = 47; Match(T__2);
+				State = 48; singleExpression(0);
+				State = 49; Match(T__4);
 				}
 				break;
-			case INT:
-				{
-				_localctx = new NumberContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				State = 11; Match(INT);
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.Lt(-1);
-			State = 22;
+			State = 61;
 			_errHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(_input,2,_ctx);
+			_alt = Interpreter.AdaptivePredict(_input,5,_ctx);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.InvalidAltNumber ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) TriggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					State = 20;
+					State = 59;
 					_errHandler.Sync(this);
-					switch ( Interpreter.AdaptivePredict(_input,1,_ctx) ) {
+					switch ( Interpreter.AdaptivePredict(_input,4,_ctx) ) {
 					case 1:
 						{
-						_localctx = new MultiplyDivideContext(new ExpressionContext(_parentctx, _parentState));
-						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 14;
-						if (!(Precpred(_ctx, 3))) throw new FailedPredicateException(this, "Precpred(_ctx, 3)");
-						State = 15;
+						_localctx = new MultiplyDivideContext(new SingleExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
+						State = 53;
+						if (!(Precpred(_ctx, 7))) throw new FailedPredicateException(this, "Precpred(_ctx, 7)");
+						State = 54;
 						((MultiplyDivideContext)_localctx).operate = _input.Lt(1);
 						_la = _input.La(1);
 						if ( !(_la==MUL || _la==DIV) ) {
@@ -307,17 +583,17 @@ public partial class WSParser : Parser {
 							_errHandler.ReportMatch(this);
 							Consume();
 						}
-						State = 16; expression(4);
+						State = 55; singleExpression(8);
 						}
 						break;
 
 					case 2:
 						{
-						_localctx = new AddSubtractionContext(new ExpressionContext(_parentctx, _parentState));
-						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 17;
-						if (!(Precpred(_ctx, 2))) throw new FailedPredicateException(this, "Precpred(_ctx, 2)");
-						State = 18;
+						_localctx = new AddSubtractionContext(new SingleExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
+						State = 56;
+						if (!(Precpred(_ctx, 6))) throw new FailedPredicateException(this, "Precpred(_ctx, 6)");
+						State = 57;
 						((AddSubtractionContext)_localctx).operate = _input.Lt(1);
 						_la = _input.La(1);
 						if ( !(_la==ADD || _la==SUB) ) {
@@ -330,15 +606,15 @@ public partial class WSParser : Parser {
 							_errHandler.ReportMatch(this);
 							Consume();
 						}
-						State = 19; expression(3);
+						State = 58; singleExpression(7);
 						}
 						break;
 					}
 					} 
 				}
-				State = 24;
+				State = 63;
 				_errHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(_input,2,_ctx);
+				_alt = Interpreter.AdaptivePredict(_input,5,_ctx);
 			}
 			}
 		}
@@ -353,33 +629,101 @@ public partial class WSParser : Parser {
 		return _localctx;
 	}
 
+	public partial class BoolContext : ParserRuleContext {
+		public BoolContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_bool; } }
+		public override void EnterRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.EnterBool(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IWSListener typedListener = listener as IWSListener;
+			if (typedListener != null) typedListener.ExitBool(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBool(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public BoolContext @bool() {
+		BoolContext _localctx = new BoolContext(_ctx, State);
+		EnterRule(_localctx, 10, RULE_bool);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 64;
+			_la = _input.La(1);
+			if ( !(_la==T__5 || _la==T__6) ) {
+			_errHandler.RecoverInline(this);
+			} else {
+				if (_input.La(1) == TokenConstants.Eof) {
+					matchedEOF = true;
+				}
+
+				_errHandler.ReportMatch(this);
+				Consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
 	public override bool Sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 1: return expression_sempred((ExpressionContext)_localctx, predIndex);
+		case 4: return singleExpression_sempred((SingleExpressionContext)_localctx, predIndex);
 		}
 		return true;
 	}
-	private bool expression_sempred(ExpressionContext _localctx, int predIndex) {
+	private bool singleExpression_sempred(SingleExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 0: return Precpred(_ctx, 3);
+		case 0: return Precpred(_ctx, 7);
 
-		case 1: return Precpred(_ctx, 2);
+		case 1: return Precpred(_ctx, 6);
 		}
 		return true;
 	}
 
 	public static readonly string _serializedATN =
-		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\n\x1C\x4\x2\t\x2"+
-		"\x4\x3\t\x3\x3\x2\x3\x2\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3\xF\n"+
-		"\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\a\x3\x17\n\x3\f\x3\xE\x3\x1A\v"+
-		"\x3\x3\x3\x2\x2\x3\x4\x4\x2\x2\x4\x2\x2\x4\x3\x2\a\b\x3\x2\x5\x6\x1C\x2"+
-		"\x6\x3\x2\x2\x2\x4\xE\x3\x2\x2\x2\x6\a\x5\x4\x3\x2\a\x3\x3\x2\x2\x2\b"+
-		"\t\b\x3\x1\x2\t\n\a\x3\x2\x2\n\v\x5\x4\x3\x2\v\f\a\x4\x2\x2\f\xF\x3\x2"+
-		"\x2\x2\r\xF\a\t\x2\x2\xE\b\x3\x2\x2\x2\xE\r\x3\x2\x2\x2\xF\x18\x3\x2\x2"+
-		"\x2\x10\x11\f\x5\x2\x2\x11\x12\t\x2\x2\x2\x12\x17\x5\x4\x3\x6\x13\x14"+
-		"\f\x4\x2\x2\x14\x15\t\x3\x2\x2\x15\x17\x5\x4\x3\x5\x16\x10\x3\x2\x2\x2"+
-		"\x16\x13\x3\x2\x2\x2\x17\x1A\x3\x2\x2\x2\x18\x16\x3\x2\x2\x2\x18\x19\x3"+
-		"\x2\x2\x2\x19\x5\x3\x2\x2\x2\x1A\x18\x3\x2\x2\x2\x5\xE\x16\x18";
+		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\x10\x45\x4\x2\t"+
+		"\x2\x4\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x3\x2\a\x2\x10"+
+		"\n\x2\f\x2\xE\x2\x13\v\x2\x3\x3\x3\x3\x3\x3\x3\x4\x3\x4\x3\x4\x3\x4\x3"+
+		"\x5\x3\x5\x3\x5\x3\x5\x3\x5\a\x5!\n\x5\f\x5\xE\x5$\v\x5\a\x5&\n\x5\f\x5"+
+		"\xE\x5)\v\x5\x3\x5\x3\x5\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3"+
+		"\x6\x3\x6\x5\x6\x36\n\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\a\x6>\n\x6"+
+		"\f\x6\xE\x6\x41\v\x6\x3\a\x3\a\x3\a\x2\x2\x3\n\b\x2\x2\x4\x2\x6\x2\b\x2"+
+		"\n\x2\f\x2\x2\x5\x3\x2\r\xE\x3\x2\v\f\x3\x2\b\tG\x2\x11\x3\x2\x2\x2\x4"+
+		"\x14\x3\x2\x2\x2\x6\x17\x3\x2\x2\x2\b\x1B\x3\x2\x2\x2\n\x35\x3\x2\x2\x2"+
+		"\f\x42\x3\x2\x2\x2\xE\x10\x5\x4\x3\x2\xF\xE\x3\x2\x2\x2\x10\x13\x3\x2"+
+		"\x2\x2\x11\xF\x3\x2\x2\x2\x11\x12\x3\x2\x2\x2\x12\x3\x3\x2\x2\x2\x13\x11"+
+		"\x3\x2\x2\x2\x14\x15\x5\n\x6\x2\x15\x16\a\x3\x2\x2\x16\x5\x3\x2\x2\x2"+
+		"\x17\x18\a\n\x2\x2\x18\x19\a\x4\x2\x2\x19\x1A\x5\n\x6\x2\x1A\a\x3\x2\x2"+
+		"\x2\x1B\x1C\a\n\x2\x2\x1C\'\a\x5\x2\x2\x1D\"\x5\n\x6\x2\x1E\x1F\a\x6\x2"+
+		"\x2\x1F!\x5\n\x6\x2 \x1E\x3\x2\x2\x2!$\x3\x2\x2\x2\" \x3\x2\x2\x2\"#\x3"+
+		"\x2\x2\x2#&\x3\x2\x2\x2$\"\x3\x2\x2\x2%\x1D\x3\x2\x2\x2&)\x3\x2\x2\x2"+
+		"\'%\x3\x2\x2\x2\'(\x3\x2\x2\x2(*\x3\x2\x2\x2)\'\x3\x2\x2\x2*+\a\a\x2\x2"+
+		"+\t\x3\x2\x2\x2,-\b\x6\x1\x2-\x36\a\xF\x2\x2.\x36\x5\f\a\x2/\x36\x5\x6"+
+		"\x4\x2\x30\x36\x5\b\x5\x2\x31\x32\a\x5\x2\x2\x32\x33\x5\n\x6\x2\x33\x34"+
+		"\a\a\x2\x2\x34\x36\x3\x2\x2\x2\x35,\x3\x2\x2\x2\x35.\x3\x2\x2\x2\x35/"+
+		"\x3\x2\x2\x2\x35\x30\x3\x2\x2\x2\x35\x31\x3\x2\x2\x2\x36?\x3\x2\x2\x2"+
+		"\x37\x38\f\t\x2\x2\x38\x39\t\x2\x2\x2\x39>\x5\n\x6\n:;\f\b\x2\x2;<\t\x3"+
+		"\x2\x2<>\x5\n\x6\t=\x37\x3\x2\x2\x2=:\x3\x2\x2\x2>\x41\x3\x2\x2\x2?=\x3"+
+		"\x2\x2\x2?@\x3\x2\x2\x2@\v\x3\x2\x2\x2\x41?\x3\x2\x2\x2\x42\x43\t\x4\x2"+
+		"\x2\x43\r\x3\x2\x2\x2\b\x11\"\'\x35=?";
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }

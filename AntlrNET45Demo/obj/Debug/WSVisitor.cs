@@ -33,49 +33,101 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IWSVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
+	/// Visit a parse tree produced by the <c>Assignment</c>
+	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitAssignment([NotNull] WSParser.AssignmentContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by the <c>Parenthesis</c>
-	/// labeled alternative in <see cref="WSParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitParenthesis([NotNull] WSParser.ParenthesisContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Number</c>
-	/// labeled alternative in <see cref="WSParser.expression"/>.
+	/// Visit a parse tree produced by the <c>BooleanLiteral</c>
+	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitNumber([NotNull] WSParser.NumberContext context);
+	Result VisitBooleanLiteral([NotNull] WSParser.BooleanLiteralContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>AddSubtraction</c>
-	/// labeled alternative in <see cref="WSParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitAddSubtraction([NotNull] WSParser.AddSubtractionContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by the <c>CallExpression</c>
+	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitCallExpression([NotNull] WSParser.CallExpressionContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by the <c>MultiplyDivide</c>
-	/// labeled alternative in <see cref="WSParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitMultiplyDivide([NotNull] WSParser.MultiplyDivideContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="WSParser.program"/>.
+	/// Visit a parse tree produced by the <c>NumberLiteral</c>
+	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitProgram([NotNull] WSParser.ProgramContext context);
+	Result VisitNumberLiteral([NotNull] WSParser.NumberLiteralContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="WSParser.expression"/>.
+	/// Visit a parse tree produced by <see cref="WSParser.prog"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression([NotNull] WSParser.ExpressionContext context);
+	Result VisitProg([NotNull] WSParser.ProgContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="WSParser.stat"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStat([NotNull] WSParser.StatContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="WSParser.assign"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitAssign([NotNull] WSParser.AssignContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="WSParser.call"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitCall([NotNull] WSParser.CallContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="WSParser.singleExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitSingleExpression([NotNull] WSParser.SingleExpressionContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="WSParser.bool"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBool([NotNull] WSParser.BoolContext context);
 }
 } // namespace AntlrNET45Demo
