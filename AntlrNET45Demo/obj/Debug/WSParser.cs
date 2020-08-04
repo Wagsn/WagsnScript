@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from E:\WorkSpace\DotNET\WagsnScript\AntlrNET45Demo\WagsnScript.g4 by ANTLR 4.6.6
+// Generated from E:\WorkSpace\GitHub\WagsnScript\AntlrNET45Demo\WS.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -19,7 +19,7 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
-namespace AntlrDemo {
+namespace AntlrNET45Demo {
 using Antlr4.Runtime;
 using Antlr4.Runtime.Atn;
 using Antlr4.Runtime.Misc;
@@ -29,7 +29,7 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.6.6")]
 [System.CLSCompliant(false)]
-public partial class WagsnScriptParser : Parser {
+public partial class WSParser : Parser {
 	public const int
 		T__0=1, T__1=2, ADD=3, SUB=4, MUL=5, DIV=6, INT=7, WS=8;
 	public const int
@@ -83,13 +83,13 @@ public partial class WagsnScriptParser : Parser {
 		}
 	}
 
-	public override string GrammarFileName { get { return "WagsnScript.g4"; } }
+	public override string GrammarFileName { get { return "WS.g4"; } }
 
 	public override string[] RuleNames { get { return ruleNames; } }
 
 	public override string SerializedAtn { get { return _serializedATN; } }
 
-	public WagsnScriptParser(ITokenStream input)
+	public WSParser(ITokenStream input)
 		: base(input)
 	{
 		_interp = new ParserATNSimulator(this,_ATN);
@@ -104,15 +104,15 @@ public partial class WagsnScriptParser : Parser {
 		}
 		public override int RuleIndex { get { return RULE_program; } }
 		public override void EnterRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.EnterProgram(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.ExitProgram(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IWagsnScriptVisitor<TResult> typedVisitor = visitor as IWagsnScriptVisitor<TResult>;
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitProgram(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -157,32 +157,32 @@ public partial class WagsnScriptParser : Parser {
 		}
 		public ParenthesisContext(ExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.EnterParenthesis(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.ExitParenthesis(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IWagsnScriptVisitor<TResult> typedVisitor = visitor as IWagsnScriptVisitor<TResult>;
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitParenthesis(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class NumberContext : ExpressionContext {
-		public ITerminalNode INT() { return GetToken(WagsnScriptParser.INT, 0); }
+		public ITerminalNode INT() { return GetToken(WSParser.INT, 0); }
 		public NumberContext(ExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.EnterNumber(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.ExitNumber(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IWagsnScriptVisitor<TResult> typedVisitor = visitor as IWagsnScriptVisitor<TResult>;
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitNumber(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -197,15 +197,15 @@ public partial class WagsnScriptParser : Parser {
 		}
 		public AddSubtractionContext(ExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.EnterAddSubtraction(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.ExitAddSubtraction(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IWagsnScriptVisitor<TResult> typedVisitor = visitor as IWagsnScriptVisitor<TResult>;
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitAddSubtraction(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -220,15 +220,15 @@ public partial class WagsnScriptParser : Parser {
 		}
 		public MultiplyDivideContext(ExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.EnterMultiplyDivide(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IWagsnScriptListener typedListener = listener as IWagsnScriptListener;
+			IWSListener typedListener = listener as IWSListener;
 			if (typedListener != null) typedListener.ExitMultiplyDivide(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IWagsnScriptVisitor<TResult> typedVisitor = visitor as IWagsnScriptVisitor<TResult>;
+			IWSVisitor<TResult> typedVisitor = visitor as IWSVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitMultiplyDivide(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -383,4 +383,4 @@ public partial class WagsnScriptParser : Parser {
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }
-} // namespace AntlrDemo
+} // namespace AntlrNET45Demo

@@ -50,15 +50,19 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleWSVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Antlr4 Include="WagsnScript.g4">
+    <Antlr4 Include="WS.g4">
       <Generator>MSBuild:Compile</Generator>
-      <CustomToolNamespace>AntlrDemo</CustomToolNamespace>
+      <CustomToolNamespace>AntlrNET45Demo</CustomToolNamespace>
     </Antlr4>
     <None Include="packages.config" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="g4\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from E:\WorkSpace\DotNET\WagsnScript\AntlrNET45Demo\WagsnScript.g4 by ANTLR 4.6.6
+// Generated from E:\WorkSpace\GitHub\WagsnScript\AntlrNET45Demo\WS.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -19,7 +19,7 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
-namespace AntlrDemo {
+namespace AntlrNET45Demo {
 
 using Antlr4.Runtime.Misc;
 using IErrorNode = Antlr4.Runtime.Tree.IErrorNode;
@@ -28,98 +28,98 @@ using IToken = Antlr4.Runtime.IToken;
 using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 
 /// <summary>
-/// This class provides an empty implementation of <see cref="IWagsnScriptListener"/>,
+/// This class provides an empty implementation of <see cref="IWSListener"/>,
 /// which can be extended to create a listener which only needs to handle a subset
 /// of the available methods.
 /// </summary>
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.6.6")]
 [System.CLSCompliant(false)]
-public partial class WagsnScriptBaseListener : IWagsnScriptListener {
+public partial class WSBaseListener : IWSListener {
 	/// <summary>
 	/// Enter a parse tree produced by the <c>Parenthesis</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterParenthesis([NotNull] WagsnScriptParser.ParenthesisContext context) { }
+	public virtual void EnterParenthesis([NotNull] WSParser.ParenthesisContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>Parenthesis</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitParenthesis([NotNull] WagsnScriptParser.ParenthesisContext context) { }
+	public virtual void ExitParenthesis([NotNull] WSParser.ParenthesisContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>Number</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterNumber([NotNull] WagsnScriptParser.NumberContext context) { }
+	public virtual void EnterNumber([NotNull] WSParser.NumberContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>Number</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitNumber([NotNull] WagsnScriptParser.NumberContext context) { }
+	public virtual void ExitNumber([NotNull] WSParser.NumberContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>AddSubtraction</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterAddSubtraction([NotNull] WagsnScriptParser.AddSubtractionContext context) { }
+	public virtual void EnterAddSubtraction([NotNull] WSParser.AddSubtractionContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>AddSubtraction</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitAddSubtraction([NotNull] WagsnScriptParser.AddSubtractionContext context) { }
+	public virtual void ExitAddSubtraction([NotNull] WSParser.AddSubtractionContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>MultiplyDivide</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterMultiplyDivide([NotNull] WagsnScriptParser.MultiplyDivideContext context) { }
+	public virtual void EnterMultiplyDivide([NotNull] WSParser.MultiplyDivideContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>MultiplyDivide</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitMultiplyDivide([NotNull] WagsnScriptParser.MultiplyDivideContext context) { }
+	public virtual void ExitMultiplyDivide([NotNull] WSParser.MultiplyDivideContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="WagsnScriptParser.program"/>.
+	/// Enter a parse tree produced by <see cref="WSParser.program"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterProgram([NotNull] WagsnScriptParser.ProgramContext context) { }
+	public virtual void EnterProgram([NotNull] WSParser.ProgramContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="WagsnScriptParser.program"/>.
+	/// Exit a parse tree produced by <see cref="WSParser.program"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitProgram([NotNull] WagsnScriptParser.ProgramContext context) { }
+	public virtual void ExitProgram([NotNull] WSParser.ProgramContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="WagsnScriptParser.expression"/>.
+	/// Enter a parse tree produced by <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterExpression([NotNull] WagsnScriptParser.ExpressionContext context) { }
+	public virtual void EnterExpression([NotNull] WSParser.ExpressionContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="WagsnScriptParser.expression"/>.
+	/// Exit a parse tree produced by <see cref="WSParser.expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitExpression([NotNull] WagsnScriptParser.ExpressionContext context) { }
+	public virtual void ExitExpression([NotNull] WSParser.ExpressionContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>
@@ -134,4 +134,4 @@ public partial class WagsnScriptBaseListener : IWagsnScriptListener {
 	/// <remarks>The default implementation does nothing.</remarks>
 	public virtual void VisitErrorNode([NotNull] IErrorNode node) { }
 }
-} // namespace AntlrDemo
+} // namespace AntlrNET45Demo

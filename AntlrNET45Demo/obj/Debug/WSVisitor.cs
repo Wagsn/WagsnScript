@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from E:\WorkSpace\DotNET\WagsnScript\AntlrNET45Demo\WagsnScript.g4 by ANTLR 4.6.6
+// Generated from E:\WorkSpace\GitHub\WagsnScript\AntlrNET45Demo\WS.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -19,63 +19,63 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
-namespace AntlrDemo {
+namespace AntlrNET45Demo {
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
 using IToken = Antlr4.Runtime.IToken;
 
 /// <summary>
 /// This interface defines a complete generic visitor for a parse tree produced
-/// by <see cref="WagsnScriptParser"/>.
+/// by <see cref="WSParser"/>.
 /// </summary>
 /// <typeparam name="Result">The return type of the visit operation.</typeparam>
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.6.6")]
 [System.CLSCompliant(false)]
-public interface IWagsnScriptVisitor<Result> : IParseTreeVisitor<Result> {
+public interface IWSVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
 	/// Visit a parse tree produced by the <c>Parenthesis</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitParenthesis([NotNull] WagsnScriptParser.ParenthesisContext context);
+	Result VisitParenthesis([NotNull] WSParser.ParenthesisContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>Number</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitNumber([NotNull] WagsnScriptParser.NumberContext context);
+	Result VisitNumber([NotNull] WSParser.NumberContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>AddSubtraction</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitAddSubtraction([NotNull] WagsnScriptParser.AddSubtractionContext context);
+	Result VisitAddSubtraction([NotNull] WSParser.AddSubtractionContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>MultiplyDivide</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitMultiplyDivide([NotNull] WagsnScriptParser.MultiplyDivideContext context);
+	Result VisitMultiplyDivide([NotNull] WSParser.MultiplyDivideContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="WagsnScriptParser.program"/>.
+	/// Visit a parse tree produced by <see cref="WSParser.program"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitProgram([NotNull] WagsnScriptParser.ProgramContext context);
+	Result VisitProgram([NotNull] WSParser.ProgramContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="WagsnScriptParser.expression"/>.
+	/// Visit a parse tree produced by <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression([NotNull] WagsnScriptParser.ExpressionContext context);
+	Result VisitExpression([NotNull] WSParser.ExpressionContext context);
 }
-} // namespace AntlrDemo
+} // namespace AntlrNET45Demo

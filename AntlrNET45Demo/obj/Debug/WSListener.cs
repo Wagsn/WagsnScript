@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from E:\WorkSpace\DotNET\WagsnScript\AntlrNET45Demo\WagsnScript.g4 by ANTLR 4.6.6
+// Generated from E:\WorkSpace\GitHub\WagsnScript\AntlrNET45Demo\WS.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -19,90 +19,90 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
-namespace AntlrDemo {
+namespace AntlrNET45Demo {
 using Antlr4.Runtime.Misc;
 using IParseTreeListener = Antlr4.Runtime.Tree.IParseTreeListener;
 using IToken = Antlr4.Runtime.IToken;
 
 /// <summary>
 /// This interface defines a complete listener for a parse tree produced by
-/// <see cref="WagsnScriptParser"/>.
+/// <see cref="WSParser"/>.
 /// </summary>
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.6.6")]
 [System.CLSCompliant(false)]
-public interface IWagsnScriptListener : IParseTreeListener {
+public interface IWSListener : IParseTreeListener {
 	/// <summary>
 	/// Enter a parse tree produced by the <c>Parenthesis</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterParenthesis([NotNull] WagsnScriptParser.ParenthesisContext context);
+	void EnterParenthesis([NotNull] WSParser.ParenthesisContext context);
 	/// <summary>
 	/// Exit a parse tree produced by the <c>Parenthesis</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitParenthesis([NotNull] WagsnScriptParser.ParenthesisContext context);
+	void ExitParenthesis([NotNull] WSParser.ParenthesisContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>Number</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterNumber([NotNull] WagsnScriptParser.NumberContext context);
+	void EnterNumber([NotNull] WSParser.NumberContext context);
 	/// <summary>
 	/// Exit a parse tree produced by the <c>Number</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitNumber([NotNull] WagsnScriptParser.NumberContext context);
+	void ExitNumber([NotNull] WSParser.NumberContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>AddSubtraction</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAddSubtraction([NotNull] WagsnScriptParser.AddSubtractionContext context);
+	void EnterAddSubtraction([NotNull] WSParser.AddSubtractionContext context);
 	/// <summary>
 	/// Exit a parse tree produced by the <c>AddSubtraction</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAddSubtraction([NotNull] WagsnScriptParser.AddSubtractionContext context);
+	void ExitAddSubtraction([NotNull] WSParser.AddSubtractionContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>MultiplyDivide</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterMultiplyDivide([NotNull] WagsnScriptParser.MultiplyDivideContext context);
+	void EnterMultiplyDivide([NotNull] WSParser.MultiplyDivideContext context);
 	/// <summary>
 	/// Exit a parse tree produced by the <c>MultiplyDivide</c>
-	/// labeled alternative in <see cref="WagsnScriptParser.expression"/>.
+	/// labeled alternative in <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitMultiplyDivide([NotNull] WagsnScriptParser.MultiplyDivideContext context);
+	void ExitMultiplyDivide([NotNull] WSParser.MultiplyDivideContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="WagsnScriptParser.program"/>.
+	/// Enter a parse tree produced by <see cref="WSParser.program"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterProgram([NotNull] WagsnScriptParser.ProgramContext context);
+	void EnterProgram([NotNull] WSParser.ProgramContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="WagsnScriptParser.program"/>.
+	/// Exit a parse tree produced by <see cref="WSParser.program"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitProgram([NotNull] WagsnScriptParser.ProgramContext context);
+	void ExitProgram([NotNull] WSParser.ProgramContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="WagsnScriptParser.expression"/>.
+	/// Enter a parse tree produced by <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression([NotNull] WagsnScriptParser.ExpressionContext context);
+	void EnterExpression([NotNull] WSParser.ExpressionContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="WagsnScriptParser.expression"/>.
+	/// Exit a parse tree produced by <see cref="WSParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression([NotNull] WagsnScriptParser.ExpressionContext context);
+	void ExitExpression([NotNull] WSParser.ExpressionContext context);
 }
-} // namespace AntlrDemo
+} // namespace AntlrNET45Demo

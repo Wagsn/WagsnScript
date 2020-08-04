@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from E:\WorkSpace\DotNET\WagsnScript\AntlrNET45Demo\WagsnScript.g4 by ANTLR 4.6.6
+// Generated from E:\WorkSpace\GitHub\WagsnScript\AntlrNET45Demo\WS.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -19,7 +19,7 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
-namespace AntlrDemo {
+namespace AntlrNET45Demo {
 using Antlr4.Runtime;
 using Antlr4.Runtime.Atn;
 using Antlr4.Runtime.Misc;
@@ -27,7 +27,7 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.6.6")]
 [System.CLSCompliant(false)]
-public partial class WagsnScriptLexer : Lexer {
+public partial class WSLexer : Lexer {
 	public const int
 		T__0=1, T__1=2, ADD=3, SUB=4, MUL=5, DIV=6, INT=7, WS=8;
 	public static string[] modeNames = {
@@ -39,7 +39,7 @@ public partial class WagsnScriptLexer : Lexer {
 	};
 
 
-	public WagsnScriptLexer(ICharStream input)
+	public WSLexer(ICharStream input)
 		: base(input)
 	{
 		_interp = new LexerATNSimulator(this,_ATN);
@@ -90,7 +90,7 @@ public partial class WagsnScriptLexer : Lexer {
 		}
 	}
 
-	public override string GrammarFileName { get { return "WagsnScript.g4"; } }
+	public override string GrammarFileName { get { return "WS.g4"; } }
 
 	public override string[] RuleNames { get { return ruleNames; } }
 
@@ -118,4 +118,4 @@ public partial class WagsnScriptLexer : Lexer {
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }
-} // namespace AntlrDemo
+} // namespace AntlrNET45Demo

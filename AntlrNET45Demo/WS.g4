@@ -1,4 +1,4 @@
-﻿grammar WagsnScript;
+﻿grammar WS;
 
 /*
  * Parser Rules
