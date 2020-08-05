@@ -11,27 +11,23 @@ namespace AntlrNET45Demo
     {
         static void Main(string[] args)
         {
-            string input = @"
-a=true;
-b=1;
-a();
-a(b);
-a(b,c);
-";
+            string input = System.IO.File.ReadAllText("test/statement.ws");
             Console.WriteLine(input);
 
             var stream = new AntlrInputStream(input);
             var lexer = new WSLexer(stream);
             var tokens = new CommonTokenStream(lexer);
             var parser = new WSParser(tokens);
+
+            //new CommonTree()
             var tree = parser.prog();
 
             Console.WriteLine("tree.ToStringTree(parser)");
             Console.WriteLine(tree.ToStringTree(parser));
 
-            //var visitor = new SimpleWSVisitor();
-            //var result = visitor.Visit(tree);
-            //Console.WriteLine(result);
+            var visitor = new SimpleWSVisitor();
+            var result = visitor.Visit(tree);
+            Console.WriteLine(result);
 
             Console.ReadKey();
         }

@@ -1,55 +1,43 @@
 ﻿grammar WS;
 
-/*
- * Parser Rules
- */
+/// Parser Rules
 
 // program
-prog
-    : stat*
-;
-
+prog: stat* ;
 // statement
 stat
-    : singleExpression ';'
+    : expr ';'  #PrintExpr
+    | ID '=' expr ';'  #Assign
+;
+expr
+    : addExpr  #AddExpression
+;
+addExpr
+    : multExpr 
+    | addExpr op=('+'|'-') multExpr 
+;
+multExpr
+    : miniExpr 
+    | multExpr op=('*'|'/') miniExpr 
+;
+miniExpr
+    : INT     #Int
+    | ID      #Ident
+    | '(' expr ')'  #Parens
 ;
 
-assign
-    : ID '=' singleExpression
-;
+///  Lexer Rules
 
-call
-    : ID '(' (singleExpression (',' singleExpression)*)* ')'
-;
-
-// singleExpression
-singleExpression
-    : singleExpression operate = ('*' | '/') singleExpression   #MultiplyDivide
-    | singleExpression operate = ('+' | '-') singleExpression   #AddSubtraction    
-    | INT                                                       #NumberLiteral
-    | bool                                                      #BooleanLiteral
-    | assign                                                    #Assignment
-    | call                                                      #CallExpression
-    | '(' singleExpression ')'                                  #Parenthesis
-;
-
-bool
-    : 'true'
-    | 'false'
-;
-
-/*
- * Lexer Rules
- */
+INT : '0'..'9'+ ;
 
 // Identifier
-ID : [a-zA-Z][a-zA-Z0-9]*;
+ID
+    : [a-zA-Z][a-zA-Z0-9]*
+;
 
 ADD : '+' ;
 SUB : '-' ;
 MUL : '*' ;
 DIV : '/' ;
-
-INT : '0'..'9'+ ;
 
 WS : [ \t\r\n]+ -> skip ;

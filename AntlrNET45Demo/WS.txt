@@ -1,0 +1,39 @@
+﻿
+grammar WS;
+
+/*
+ * Parser Rules
+ */
+
+// program
+prog
+    : stat*
+;
+
+// statement
+stat
+    : singleExpression ';'
+;
+
+assign
+    : ID '=' singleExpression
+;
+
+call
+    : ID '(' (singleExpression (',' singleExpression)*)* ')'
+;
+
+expr 
+    : 
+
+// singleExpression
+singleExpression
+    : singleExpression operate = ('*' | '/') singleExpression   #MultiplyDivide
+    | singleExpression operate = ('+' | '-') singleExpression   #AddSubtraction    
+    | INT                                                       #NumberLiteral
+    | bool                                                      #BooleanLiteral
+    | assign                                                    #Assignment
+    | call                                                      #CallExpression
+    | '(' singleExpression ')'                                  #Parenthesis
+;
+

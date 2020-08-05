@@ -32,95 +32,82 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IWSListener : IParseTreeListener {
 	/// <summary>
-	/// Enter a parse tree produced by the <c>Assignment</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Enter a parse tree produced by the <c>Ident</c>
+	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAssignment([NotNull] WSParser.AssignmentContext context);
+	void EnterIdent([NotNull] WSParser.IdentContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>Assignment</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Exit a parse tree produced by the <c>Ident</c>
+	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAssignment([NotNull] WSParser.AssignmentContext context);
+	void ExitIdent([NotNull] WSParser.IdentContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>Parenthesis</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Enter a parse tree produced by the <c>Parens</c>
+	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterParenthesis([NotNull] WSParser.ParenthesisContext context);
+	void EnterParens([NotNull] WSParser.ParensContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>Parenthesis</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Exit a parse tree produced by the <c>Parens</c>
+	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitParenthesis([NotNull] WSParser.ParenthesisContext context);
+	void ExitParens([NotNull] WSParser.ParensContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>BooleanLiteral</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Enter a parse tree produced by the <c>Int</c>
+	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBooleanLiteral([NotNull] WSParser.BooleanLiteralContext context);
+	void EnterInt([NotNull] WSParser.IntContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>BooleanLiteral</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Exit a parse tree produced by the <c>Int</c>
+	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBooleanLiteral([NotNull] WSParser.BooleanLiteralContext context);
+	void ExitInt([NotNull] WSParser.IntContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>AddSubtraction</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Enter a parse tree produced by the <c>Assign</c>
+	/// labeled alternative in <see cref="WSParser.stat"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAddSubtraction([NotNull] WSParser.AddSubtractionContext context);
+	void EnterAssign([NotNull] WSParser.AssignContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>AddSubtraction</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Exit a parse tree produced by the <c>Assign</c>
+	/// labeled alternative in <see cref="WSParser.stat"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAddSubtraction([NotNull] WSParser.AddSubtractionContext context);
+	void ExitAssign([NotNull] WSParser.AssignContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>CallExpression</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Enter a parse tree produced by the <c>PrintExpr</c>
+	/// labeled alternative in <see cref="WSParser.stat"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterCallExpression([NotNull] WSParser.CallExpressionContext context);
+	void EnterPrintExpr([NotNull] WSParser.PrintExprContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>CallExpression</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Exit a parse tree produced by the <c>PrintExpr</c>
+	/// labeled alternative in <see cref="WSParser.stat"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitCallExpression([NotNull] WSParser.CallExpressionContext context);
+	void ExitPrintExpr([NotNull] WSParser.PrintExprContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>MultiplyDivide</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Enter a parse tree produced by the <c>AddExpression</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterMultiplyDivide([NotNull] WSParser.MultiplyDivideContext context);
+	void EnterAddExpression([NotNull] WSParser.AddExpressionContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>MultiplyDivide</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Exit a parse tree produced by the <c>AddExpression</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitMultiplyDivide([NotNull] WSParser.MultiplyDivideContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by the <c>NumberLiteral</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterNumberLiteral([NotNull] WSParser.NumberLiteralContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>NumberLiteral</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitNumberLiteral([NotNull] WSParser.NumberLiteralContext context);
+	void ExitAddExpression([NotNull] WSParser.AddExpressionContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="WSParser.prog"/>.
@@ -145,47 +132,47 @@ public interface IWSListener : IParseTreeListener {
 	void ExitStat([NotNull] WSParser.StatContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="WSParser.assign"/>.
+	/// Enter a parse tree produced by <see cref="WSParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAssign([NotNull] WSParser.AssignContext context);
+	void EnterExpr([NotNull] WSParser.ExprContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="WSParser.assign"/>.
+	/// Exit a parse tree produced by <see cref="WSParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAssign([NotNull] WSParser.AssignContext context);
+	void ExitExpr([NotNull] WSParser.ExprContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="WSParser.call"/>.
+	/// Enter a parse tree produced by <see cref="WSParser.addExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterCall([NotNull] WSParser.CallContext context);
+	void EnterAddExpr([NotNull] WSParser.AddExprContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="WSParser.call"/>.
+	/// Exit a parse tree produced by <see cref="WSParser.addExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitCall([NotNull] WSParser.CallContext context);
+	void ExitAddExpr([NotNull] WSParser.AddExprContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="WSParser.singleExpression"/>.
+	/// Enter a parse tree produced by <see cref="WSParser.multExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSingleExpression([NotNull] WSParser.SingleExpressionContext context);
+	void EnterMultExpr([NotNull] WSParser.MultExprContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="WSParser.singleExpression"/>.
+	/// Exit a parse tree produced by <see cref="WSParser.multExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSingleExpression([NotNull] WSParser.SingleExpressionContext context);
+	void ExitMultExpr([NotNull] WSParser.MultExprContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="WSParser.bool"/>.
+	/// Enter a parse tree produced by <see cref="WSParser.miniExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBool([NotNull] WSParser.BoolContext context);
+	void EnterMiniExpr([NotNull] WSParser.MiniExprContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="WSParser.bool"/>.
+	/// Exit a parse tree produced by <see cref="WSParser.miniExpr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBool([NotNull] WSParser.BoolContext context);
+	void ExitMiniExpr([NotNull] WSParser.MiniExprContext context);
 }
 } // namespace AntlrNET45Demo

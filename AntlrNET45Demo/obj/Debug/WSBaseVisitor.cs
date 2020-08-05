@@ -35,8 +35,8 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, IWSVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Assignment</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Visit a parse tree produced by the <c>Ident</c>
+	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -44,11 +44,11 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitAssignment([NotNull] WSParser.AssignmentContext context) { return VisitChildren(context); }
+	public virtual Result VisitIdent([NotNull] WSParser.IdentContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Parenthesis</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Visit a parse tree produced by the <c>Parens</c>
+	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -56,11 +56,11 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitParenthesis([NotNull] WSParser.ParenthesisContext context) { return VisitChildren(context); }
+	public virtual Result VisitParens([NotNull] WSParser.ParensContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>BooleanLiteral</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Visit a parse tree produced by the <c>Int</c>
+	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -68,11 +68,11 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitBooleanLiteral([NotNull] WSParser.BooleanLiteralContext context) { return VisitChildren(context); }
+	public virtual Result VisitInt([NotNull] WSParser.IntContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>AddSubtraction</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Visit a parse tree produced by the <c>Assign</c>
+	/// labeled alternative in <see cref="WSParser.stat"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -80,11 +80,11 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitAddSubtraction([NotNull] WSParser.AddSubtractionContext context) { return VisitChildren(context); }
+	public virtual Result VisitAssign([NotNull] WSParser.AssignContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>CallExpression</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Visit a parse tree produced by the <c>PrintExpr</c>
+	/// labeled alternative in <see cref="WSParser.stat"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -92,11 +92,11 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitCallExpression([NotNull] WSParser.CallExpressionContext context) { return VisitChildren(context); }
+	public virtual Result VisitPrintExpr([NotNull] WSParser.PrintExprContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>MultiplyDivide</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
+	/// Visit a parse tree produced by the <c>AddExpression</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -104,19 +104,7 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitMultiplyDivide([NotNull] WSParser.MultiplyDivideContext context) { return VisitChildren(context); }
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>NumberLiteral</c>
-	/// labeled alternative in <see cref="WSParser.singleExpression"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitNumberLiteral([NotNull] WSParser.NumberLiteralContext context) { return VisitChildren(context); }
+	public virtual Result VisitAddExpression([NotNull] WSParser.AddExpressionContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="WSParser.prog"/>.
@@ -141,7 +129,7 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	public virtual Result VisitStat([NotNull] WSParser.StatContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="WSParser.assign"/>.
+	/// Visit a parse tree produced by <see cref="WSParser.expr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -149,10 +137,10 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitAssign([NotNull] WSParser.AssignContext context) { return VisitChildren(context); }
+	public virtual Result VisitExpr([NotNull] WSParser.ExprContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="WSParser.call"/>.
+	/// Visit a parse tree produced by <see cref="WSParser.addExpr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -160,10 +148,10 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitCall([NotNull] WSParser.CallContext context) { return VisitChildren(context); }
+	public virtual Result VisitAddExpr([NotNull] WSParser.AddExprContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="WSParser.singleExpression"/>.
+	/// Visit a parse tree produced by <see cref="WSParser.multExpr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -171,10 +159,10 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitSingleExpression([NotNull] WSParser.SingleExpressionContext context) { return VisitChildren(context); }
+	public virtual Result VisitMultExpr([NotNull] WSParser.MultExprContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="WSParser.bool"/>.
+	/// Visit a parse tree produced by <see cref="WSParser.miniExpr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -182,6 +170,6 @@ public partial class WSBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, I
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitBool([NotNull] WSParser.BoolContext context) { return VisitChildren(context); }
+	public virtual Result VisitMiniExpr([NotNull] WSParser.MiniExprContext context) { return VisitChildren(context); }
 }
 } // namespace AntlrNET45Demo
