@@ -10,18 +10,9 @@ stat
     | ID '=' expr ';'  #Assign
 ;
 expr
-    : addExpr  #AddExpression
-;
-addExpr
-    : multExpr 
-    | addExpr op=('+'|'-') multExpr 
-;
-multExpr
-    : miniExpr 
-    | multExpr op=('*'|'/') miniExpr 
-;
-miniExpr
-    : INT     #Int
+    : expr op=(MUL|DIV) expr #MultExpr
+    | expr op=(ADD|SUB) expr  #AddExpr
+    | INT     #Int
     | ID      #Ident
     | '(' expr ')'  #Parens
 ;

@@ -32,45 +32,6 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IWSListener : IParseTreeListener {
 	/// <summary>
-	/// Enter a parse tree produced by the <c>Ident</c>
-	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterIdent([NotNull] WSParser.IdentContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Ident</c>
-	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitIdent([NotNull] WSParser.IdentContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Parens</c>
-	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterParens([NotNull] WSParser.ParensContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Parens</c>
-	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitParens([NotNull] WSParser.ParensContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Int</c>
-	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterInt([NotNull] WSParser.IntContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Int</c>
-	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitInt([NotNull] WSParser.IntContext context);
-
-	/// <summary>
 	/// Enter a parse tree produced by the <c>Assign</c>
 	/// labeled alternative in <see cref="WSParser.stat"/>.
 	/// </summary>
@@ -97,17 +58,69 @@ public interface IWSListener : IParseTreeListener {
 	void ExitPrintExpr([NotNull] WSParser.PrintExprContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>AddExpression</c>
+	/// Enter a parse tree produced by the <c>Ident</c>
 	/// labeled alternative in <see cref="WSParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAddExpression([NotNull] WSParser.AddExpressionContext context);
+	void EnterIdent([NotNull] WSParser.IdentContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>AddExpression</c>
+	/// Exit a parse tree produced by the <c>Ident</c>
 	/// labeled alternative in <see cref="WSParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAddExpression([NotNull] WSParser.AddExpressionContext context);
+	void ExitIdent([NotNull] WSParser.IdentContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>Parens</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterParens([NotNull] WSParser.ParensContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>Parens</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitParens([NotNull] WSParser.ParensContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>MultExpr</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMultExpr([NotNull] WSParser.MultExprContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>MultExpr</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMultExpr([NotNull] WSParser.MultExprContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>AddExpr</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAddExpr([NotNull] WSParser.AddExprContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>AddExpr</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAddExpr([NotNull] WSParser.AddExprContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>Int</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterInt([NotNull] WSParser.IntContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>Int</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitInt([NotNull] WSParser.IntContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="WSParser.prog"/>.
@@ -141,38 +154,5 @@ public interface IWSListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitExpr([NotNull] WSParser.ExprContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="WSParser.addExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterAddExpr([NotNull] WSParser.AddExprContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="WSParser.addExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitAddExpr([NotNull] WSParser.AddExprContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="WSParser.multExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterMultExpr([NotNull] WSParser.MultExprContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="WSParser.multExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitMultExpr([NotNull] WSParser.MultExprContext context);
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterMiniExpr([NotNull] WSParser.MiniExprContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitMiniExpr([NotNull] WSParser.MiniExprContext context);
 }
 } // namespace AntlrNET45Demo

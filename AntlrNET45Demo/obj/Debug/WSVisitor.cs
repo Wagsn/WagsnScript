@@ -33,30 +33,6 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IWSVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Ident</c>
-	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIdent([NotNull] WSParser.IdentContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>Parens</c>
-	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitParens([NotNull] WSParser.ParensContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>Int</c>
-	/// labeled alternative in <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitInt([NotNull] WSParser.IntContext context);
-
-	/// <summary>
 	/// Visit a parse tree produced by the <c>Assign</c>
 	/// labeled alternative in <see cref="WSParser.stat"/>.
 	/// </summary>
@@ -73,12 +49,44 @@ public interface IWSVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitPrintExpr([NotNull] WSParser.PrintExprContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>AddExpression</c>
+	/// Visit a parse tree produced by the <c>Ident</c>
 	/// labeled alternative in <see cref="WSParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitAddExpression([NotNull] WSParser.AddExpressionContext context);
+	Result VisitIdent([NotNull] WSParser.IdentContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>Parens</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitParens([NotNull] WSParser.ParensContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>MultExpr</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMultExpr([NotNull] WSParser.MultExprContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>AddExpr</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitAddExpr([NotNull] WSParser.AddExprContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>Int</c>
+	/// labeled alternative in <see cref="WSParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitInt([NotNull] WSParser.IntContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="WSParser.prog"/>.
@@ -100,26 +108,5 @@ public interface IWSVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitExpr([NotNull] WSParser.ExprContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="WSParser.addExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitAddExpr([NotNull] WSParser.AddExprContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="WSParser.multExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMultExpr([NotNull] WSParser.MultExprContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="WSParser.miniExpr"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMiniExpr([NotNull] WSParser.MiniExprContext context);
 }
 } // namespace AntlrNET45Demo
